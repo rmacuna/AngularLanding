@@ -1,31 +1,15 @@
 @import '../../variables.sass';
 
-.ButtonTitled
-    position: relative
-    width: 150px
-    height: 100px
-    outline: none
-    border: none
-    transform: skew(-15deg)
-    margin: 10px
-    display: flex
-    align-items: center
-    justify-content: center
-    cursor: pointer
-    text-align: center
-    font-weight: 700
-    p
-        transform: skew(15deg)
-
-.ButtonTitled.primary 
-    background: $black;
-    color: #fff
 
 
 
 .MainWrapper
     position: relative
-    background: $primary 
+    min-height: 100vh
+    padding: $wrapper-main-padding
+    background: linear-gradient(178.38deg, #7629F5 73.31%, rgba(255, 255, 255, 0) 203.63%), #2D1555;
+.SecondWrapper 
+    position: relative
     min-height: 100vh
     padding: $wrapper-main-padding
 
@@ -61,8 +45,120 @@
         list-style: none
         font-weight: 600
         padding: 10px 14px
+        transition: color 0.4s ease-out
         color: #fff
         cursor: pointer
     li.active 
         color: $tertiary
+    li 
+        &:hover 
+            color: lighten($tertiary, 15)
+
+// First Main Content
+.AppContent 
+    position: relative 
+    width: 100%
+    display: flex 
+    align-self: auto
+    margin-top: 67px
+    .AppContent__Item
+        position: relative
+        display: block
+        width: 100% 
+    .AppContent__Item.SvgGreenBackground 
+        display: block
+        overflow-x: hidden
+        background-image: url(../../assets/svg/greenpath.svg)
+        background-size: cover 
+        background-repeat: no-repeat
+        background-position-y: -40px
+        min-height: 580px
+
+        display: flex
+        align-items: center
+        justify-content: center
+
+
+    h1.Title--white
+        position: relative
+        color: #fff 
+        margin: 0
+        font-weight: 700 
+        font-size: $title-white-font-size
+    h2.Subtitle--orange 
+        position: relative
+        color: $tertiary
+        margin: 0
+        font-size: $subtitle-orange-font-size
+        font-weight: 700 
+    p.LoudifyDescription
+        max-width: 510px
+        font-size: 21px 
+        color: #fff 
+        font-weight: 400
+        text-align: justify
+    
+    
+.ShadowText 
+    position: relative
+    font-size: $shadow-text-size
+    color: rgba(255,255,255,.10)
+    font-weight: 700
+    margin-top: -47px
+.ShadowText__Bottom
+    position: relative
+    font-size: $shadow-text-size-bottom
+    color: rgba(255,255,255,.10)
+    font-weight: 700
+    margin-top: 47px
+
+.BottomSubtitle--green
+    position: relative
+    color: $secondary 
+    font-weight: 600 
+    font-size: 18px
+
+.Image 
+    position: relative
+    margin-left: auto 
+    margin-right: auto 
+
+.Image.SpeakerImage 
+    width: 160% 
+    max-width: 160% 
+    height: auto
+    margin-bottom: -15px
+
+
+.BannerWrapper 
+    position: relative
+    display: flex 
+    justify-content: center 
+    align-items: center 
+    min-height: 300px 
+    .Banner 
+        position: relative
+        width: 500px
+        height: 100px
+        outline: none
+        border: none
+        transform: skew(-15deg)
+        margin: 10px
+        display: flex
+        align-items: center
+        justify-content: center
+        cursor: pointer
+        text-align: center
+        font-weight: 700
+        padding: 2px 13px
+
+        box-shadow: 0 2px 60px rgba(0,0,0,.5)
+        h1
+            transform: skew(15deg)
+
+    .Banner.primary 
+        background: $black 
+        color: $secondary
+
+        
 

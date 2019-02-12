@@ -213,6 +213,12 @@
         font-size: 34px
         background: $black 
         color: $secondary
+    .Banner.tertiary
+        width: 400px 
+        height: 140px
+        font-size: 24px 
+        background: #2D1555
+        color: #FFEF3F
 
         
 
@@ -265,13 +271,15 @@
 
 .CharlieWaves
     position: absolute
-    width: 60%
-    height: 60%
+    width: 90%
+    height: 120%
     z-index: -1
     bottom: 0
     right: 0
     background-image: url(../../assets/svg/charlieputh.svg)
     background-size: cover
+
+    transform: rotate(20deg)
 .WrapperCharliePuth
     position: relative
     z-index: 3
@@ -397,9 +405,13 @@
     min-height: 400px
     background: #2D1555
     padding: 80px 48px
-
     display: flex
-    flex-direction: column
+    flex-direction: row 
+    .Column 
+        display: flex 
+        flex-direction: column
+        width: 100% 
+        max-width: 100%
     .AppName
         position: relative
         font-size: 67px
@@ -415,4 +427,11 @@
             color: #fff 
             font-size: 18px
             font-weight: 600
+
+.Copyright
+    font-size: 16px
+    font-weight: 600
+    color: $secondary
+    text-align: end
+    max-width: 550px
         

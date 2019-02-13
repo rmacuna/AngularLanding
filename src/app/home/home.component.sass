@@ -1,0 +1,435 @@
+@import '../../variables.sass';
+
+
+
+
+.MainWrapper
+    position: relative
+    min-height: 100vh
+    padding: $wrapper-main-padding
+    background: linear-gradient(178.38deg, #7629F5 73.31%, rgba(255, 255, 255, 0) 203.63%), #2D1555;
+    overflow: hidden
+.SecondWrapper 
+    position: relative
+    min-height: 100vh
+    .Container 
+        padding: $wrapper-main-padding
+
+.AppBar
+    position: relative
+    display: flex 
+
+.BrandLogo
+    position: relative
+    color: #fff
+    font-weight: 700
+    max-width: 150px
+    font-size: 40px
+    flex-grow: 1
+    display: inline-block
+    &:after
+        content: ''
+        display: block
+        position: relative
+        margin-top: 3px
+        width: 100%
+        height: 6px
+        background: $secondary
+        border-radius: 6px
+
+.Loudify__Navigation
+    display: flex 
+    justify-content: flex-end
+    flex-grow: 5
+    margin: 0
+    align-items: center
+    li 
+        list-style: none
+        font-weight: 600
+        padding: 10px 14px
+        transition: color 0.4s ease-out
+        color: #fff
+        cursor: pointer
+    li.active 
+        color: $tertiary
+    li 
+        &:hover 
+            color: lighten($tertiary, 15)
+
+.BackgroundSvg
+    position: absolute
+    width: 100% 
+    min-height: 100%
+    background-image: url(../../assets/svg/greenpath.svg)
+    background-size: cover 
+    background-repeat: no-repeat
+    background-position-x: 300px
+    overflow: hidden
+
+
+// First Main Content
+.AppContent 
+    position: relative 
+    width: 100%
+    display: flex 
+    align-self: auto
+    margin-top: 67px
+    .AppContent__Item
+        position: relative
+        display: block
+        width: 100% 
+    .AppContent__Item.SvgGreenBackground 
+        display: block
+        overflow: hidden
+        display: flex
+        align-items: center
+        justify-content: center
+
+
+    h1.Title--white
+        position: relative
+        color: #fff 
+        margin: 0
+        font-weight: 700 
+        font-size: $title-white-font-size
+    h2.Subtitle--orange 
+        position: relative
+        color: $tertiary
+        margin: 0
+        font-size: $subtitle-orange-font-size
+        font-weight: 700 
+    p.LoudifyDescription
+        max-width: 510px
+        font-size: 21px 
+        color: #fff 
+        font-weight: 400
+        text-align: justify
+    
+    
+.ShadowText 
+    position: relative
+    font-size: $shadow-text-size
+    color: rgba(255,255,255,.10)
+    font-weight: 700
+    margin-top: -47px
+
+.ShadowText__Last
+    position: relative
+    font-size: $shadow-text-size
+    color: rgba(255,255,255,.10)
+    font-weight: 700
+    margin-top: 37px
+
+
+.ShadowText__Bottom
+    position: relative
+    font-size: $shadow-text-size-bottom
+    color: rgba(255,255,255,.10)
+    font-weight: 700
+    margin-top: 47px
+
+.ShadowTextLoudify
+    position: relative
+    font-size: $shadow-text-size-bottom
+    color: $secondary
+    font-weight: 700
+    margin: 0
+
+.ShadowTextCharlie
+    position: relative
+    font-size: $shadow-text-size-bottom
+    color: #664A00
+    font-weight: 700
+    margin: 0
+    text-align: end
+
+.ArtisTitle
+    font-size: $artist-name-font-size
+    color: rgba(19,0,60,1)
+    margin: 0
+
+.BottomSubtitle--green
+    position: relative
+    color: $secondary 
+    font-weight: 600 
+    font-size: 18px
+
+.Image 
+    position: relative
+    margin-left: auto 
+    margin-right: auto 
+    
+.MartinGarrix 
+    align-items: bottom
+    margin-top: 50px
+    margin-left: -120px
+
+
+.Image.SpeakerImage 
+    width: 160% 
+    max-width: 160% 
+    height: auto
+    margin-bottom: -15px
+    margin-left: 40px
+
+.BannerPurple 
+    background: #2D1555
+.BannerWrapper.Garrix 
+    margin-top: -45px
+.BannerWrapper 
+    position: relative
+    display: flex 
+    justify-content: center 
+    align-items: center 
+    min-height: 300px 
+    .Banner 
+        position: relative
+        height: 100px
+        outline: none
+        border: none
+        transform: skew(-15deg)
+        margin: 10px
+        display: flex
+        align-items: center
+        justify-content: center
+        cursor: pointer
+        text-align: center
+        font-weight: 700
+
+        box-shadow: 0 2px 60px rgba(0,0,0,.5)
+        h1
+            transform: skew(15deg)
+
+    .Banner.primary 
+        background: $black 
+        width: 500px
+        padding: 2px 13px
+        color: $secondary
+    .Banner.secondary 
+        width: 600px
+        height: 200px
+        font-size: 34px
+        background: $black 
+        color: $secondary
+    .Banner.tertiary
+        width: 400px 
+        height: 140px
+        font-size: 24px 
+        background: #2D1555
+        color: #FFEF3F
+
+        
+
+.Row 
+    position: relative
+    display: flex
+    width: 100% 
+    flex-wrap: wrap
+    flex-direction: row  
+
+
+.WrapperGarrix 
+    position: relative
+    width: 100% 
+    min-height: 100vh
+    display: flex 
+    overflow: hidden
+    .AppContent__Item
+        position: relative
+        padding: $wrapper-main-padding
+        display: block 
+        flex: 0 0 40%
+        flex-direction: column 
+        overflow: hidden
+    .AppContent__Item.Right
+        align-items: center 
+        flex: 0 0 60%
+        justify-content: center 
+        overflow: hidden
+        .GarrixSvgBackground 
+            position: absolute
+            width: 100% 
+            min-height: 100%
+            background-image: url(../../assets/svg/garrixpath.svg)
+            background-size: 125% 
+            background-position-x: -100px
+            background-position-y: -180px
+            background-repeat: no-repeat
+            overflow: hidden
+
+
+.ThirdWrapperSeparador 
+    width: 100% 
+    background: linear-gradient(0.36deg, rgba(250, 255, 0, 0.47) 44.51%, rgba(255, 255, 255, 0) 142.21%), #6EF7AD;
+    min-height: 500px
+    display: flex
+    align-items: center 
+    justify-content: center 
+
+
+.CharlieWaves
+    position: absolute
+    width: 90%
+    height: 120%
+    z-index: -1
+    bottom: 0
+    right: 0
+    background-image: url(../../assets/svg/charlieputh.svg)
+    background-size: cover
+
+    transform: rotate(20deg)
+.WrapperCharliePuth
+    position: relative
+    z-index: 3
+    width: 100% 
+    height: 100vh 
+    overflow: hidden
+    // padding: $wrapper-main-padding
+    display: flex 
+    background: rgba(255,239,63, .8)
+    .CharlieWrapper 
+        position: relative
+        display: block 
+        height: 100%
+        flex: 0 0 50% 
+    .CharlieDescription
+        flex: 0 0 50% 
+        padding: $wrapper-main-padding
+        h1.CharlieTitle 
+            font-size: 90px
+            color: #009344
+            margin: 0
+        p.Description 
+            font-size: 18px 
+            text-align: justify
+            font-weight: 400
+
+.ImageOfCharliePuth
+    position: relative 
+    width: 100%
+    margin-left: -150px
+
+.SongList 
+    margin: 0 
+    list-style: none 
+    z-index: 100
+    li 
+        z-index: 100
+        transition: background 0.3s ease-out 
+        padding: 12px 16px
+        cursor: pointer
+        &:hover 
+            background: rgba(250,250,250,1)
+
+.SongListGarrix
+    margin: 0
+    list-style: none 
+    margin-top: 120px
+    z-index: 100
+    li 
+        z-index: 100
+        transition: background 0.3s ease-out 
+        padding: 12px 16px
+        cursor: pointer
+        &:hover 
+            background: rgba(250,250,250,1)
+            
+
+.SongTitle.Garrix
+    font-weight: 600 
+    font-size: 18px
+    &:before 
+        content: ' '
+        display: block 
+        position: absolute
+        left: 50px
+        width: 45px 
+        transform: skew(-15deg)
+        height: 30px 
+        background: #2D1555
+
+.SongTitle
+    font-weight: 600 
+    font-size: 18px
+   
+
+.SongTitle.2
+  
+.SongSubtitle
+    color: rgba(0,0,0, .37)
+
+.WrapperFourth 
+    position: relative
+    min-height: 100vh 
+    padding: $wrapper-main-padding
+    background: linear-gradient(133.53deg, #7629F5 28.86%, #1C004B 104.11%);
+    .WrapperFourth__Container 
+        position: relative
+        width: 100% 
+        height: 100%
+        display: flex
+        justify-content: center
+        align-items: center 
+        margin-top: 50px
+        flex-direction: column
+        .GreenBox 
+            position: relative
+            width: 900px
+            min-height: 400px 
+            max-height: 100%
+            background: $secondary 
+            transform: skew(-10deg)
+        .GreenBoxContent 
+            position: relative
+            width: 100% 
+            padding: $green-box-padding
+            transform: skew(10deg)        
+            h1.Title
+                font-size: 62px
+                color: #7629F5 
+                margin: 0   
+            .Subtitle 
+                font-size: 25px
+                margin: 0
+                font-weight: 600
+            .Content 
+                margin-top: 49px
+                font-size: 24px
+                font-weight: 300
+
+.AppFooter 
+    position: relative
+    width: 100% 
+    min-height: 400px
+    background: #2D1555
+    padding: 80px 48px
+    display: flex
+    flex-direction: row 
+    .Column 
+        display: flex 
+        flex-direction: column
+        width: 100% 
+        max-width: 100%
+    .AppName
+        position: relative
+        font-size: 67px
+        font-weight: 700
+        color: $secondary
+    .FooterList
+        position: relative
+        margin: 0
+        list-style: none
+        padding: 25px  0
+        li 
+            padding: 15px 5px
+            color: #fff 
+            font-size: 18px
+            font-weight: 600
+
+.Copyright
+    font-size: 16px
+    font-weight: 600
+    color: $secondary
+    text-align: end
+    max-width: 550px
+        

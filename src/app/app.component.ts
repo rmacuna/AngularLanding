@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { createCustomElement } from '@angular/elements';
+import { NgModule, Injector } from '@angular/core';
+import { ButtonTitledComponent } from './elements/ButtonTitled/ButtonTitled';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'BenchmarkLanding';
+
+
+  ngDoBootstrap() {
+  }
 }

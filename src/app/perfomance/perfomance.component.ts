@@ -11,6 +11,7 @@ export class PerfomanceComponent implements OnInit {
 
 
   @ViewChild('target') elem: ElementRef;
+  @ViewChild('bodyTable') bodyTable: ElementRef;
 
   // Modelo que inicia la vista inicialmente en falso para que el test se muestre al dar click. 
   perfomanceActive: boolean;
@@ -20,6 +21,10 @@ export class PerfomanceComponent implements OnInit {
   INFORMATION: any;
   DEFAULT_NUMBER = 150;
 
+
+
+  RANDOM_ARR_COUNTER: any[];
+
   constructor(
     private progress: NgProgress,
     private render: Renderer2,
@@ -27,24 +32,29 @@ export class PerfomanceComponent implements OnInit {
 
   ngOnInit() {
     this.INFORMATION = [];
+    this.RANDOM_ARR_COUNTER = [];
     this.perfomanceActive = false;
   }
 
 
   startPerfomanceTest() {
     this.progress.start();
+    this.RANDOM_ARR_COUNTER = Array.from({ length: this.DEFAULT_NUMBER }, (v, k) => k + 1);
     this.DEVICE_INFO = this.getDeviceInfo();
-
     setTimeout(() => {
       for (let i = 1; i <= this.DEFAULT_NUMBER; i++) {
         this.INFORMATION.push('1');
       }
       this.perfomanceActive = true;
+
+      // Esta es una manera de angular de manipular el documento.
       this.render.removeClass(this.elem.nativeElement, 'hidden');
       this.render.addClass(this.elem.nativeElement, 'show');
+    }, 1000);
+    setTimeout(() => {
       this.elem.nativeElement.scrollIntoView({ behavior: 'smooth' });
       this.progress.done();
-    }, 1000);
+    }, 1200);
   }
 
   // Obtiene información del equipo en el que se esta haciendo el benchmark.
@@ -59,5 +69,62 @@ export class PerfomanceComponent implements OnInit {
     ];
     return INFO;
   }
+
+  paintAllCells(): void {
+    this.progress.start();
+
+    const Totaltime_start = performance.now();
+    const tr_arrays = Array.prototype.slice.call(this.bodyTable.nativeElement.children);
+    tr_arrays.forEach(element => {
+      const td_arrays = Array.prototype.slice.call(element.children);
+      td_arrays.forEach(tds => {
+        const td0 = performance.now();
+        this.render.addClass(tds, 'cell-active');
+        const td1 = performance.now();
+        const tdresult = (td1 - td0);
+        const tdelem = this.render.createText(tdresult.toPrecision(2));
+        this.render.appendChild(tds, tdelem);
+      });
+    });
+
+    const Totaltime_end = performance.now();
+
+
+    setTimeout(() => {
+      alert((Totaltime_end - Totaltime_start) + 'milliseconds');
+      this.progress.done();
+    }, 1000);
+
+  }
+
+  removeCells(): void {
+
+  }
+
+  updateCells(): void {
+
+  }
+
+  addNewCells(): void {
+
+  }
+
+
+  activeCell(evt): void {
+    const t0 = performance.now();
+    const target = evt.target;
+    this.render.addClass(target, 'cell-active');
+    const t1 = performance.now();
+    const result = (t1 - t0);
+    const elem = this.render.createText(result.toPrecision(2) + ' mill');
+    this.render.appendChild(target, elem);
+  }
+
+  desactivateCell(evt): void {
+    const target = evt.target.nativeElement;
+    this.render.removeClass(target, 'cell-active');
+  }
+
+
 
 }

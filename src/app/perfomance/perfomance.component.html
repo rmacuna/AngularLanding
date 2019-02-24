@@ -1,14 +1,39 @@
 <div class="background__perfomance">
   <div class="MainContainer">
-      <h1 class="HeaderTitle">Perfomance test (Angular)</h1>
-      <h4>Roberto Acuña, William Cadenas, Elkin Rodriguez</h4>
-      <button *ngIf="!perfomanceActive" (click)="startPerfomanceTest()" class="InitButton">INICIAR</button>
+    <h1 class="HeaderTitle">Perfomance test (Angular)</h1>
+    <h4>Roberto Acuña, William Cadenas, Elkin Rodriguez</h4>
+    <button *ngIf="!perfomanceActive" (click)="startPerfomanceTest()" class="InitButton">INICIAR</button>
   </div>
 </div>
 
-<div #target class="perfomance_section">
-  <div class="container__perfomance">
+<div #target class="perfomance_section hidden">
 
+  <div class="container__perfomance">
+    <div class="information">
+      <h4>
+        Browser Information
+      </h4>
+
+      <p>{{DEVICE_INFO[0]}} </p>
+      <p>{{DEVICE_INFO[1]}} </p>
+      <p>{{DEVICE_INFO[2]}} </p>
+      <p>{{DEVICE_INFO[3]}} </p>
+      <p>{{DEVICE_INFO[4]}} </p>
+      <p>{{DEVICE_INFO[5]}} </p>
+    </div>
+
+
+    <table class="blueTable">
+      <thead>
+        <th *ngFor="let item of INFORMATION" >Row</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of INFORMATION" >
+          <td class="pointer" *ngFor="let item of INFORMATION">item</td>
+        </tr>
+      </tbody>
+
+    </table>
   </div>
 </div>
 <ng-progress thick="true" color="#6EF7AD"></ng-progress>

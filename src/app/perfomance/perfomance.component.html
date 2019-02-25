@@ -8,10 +8,10 @@
 
 <div #target class="perfomance_section hidden">
   <div class="container__perfomance">
-    <button (click)="paintAllCells()">Paint all cells</button>
-    <button (click)="removeCells()">Remove 100 cells</button>
-    <button (click)="addNewCells()">Add 100 cells</button>
-    <button (click)="updateCells()">Update 100 cells</button>
+    <button class="buttons-actions " (click)="paintAllCells()">Paint all cells</button>
+    <button class="buttons-actions " (click)="removeCells()">Remove 100 cells</button>
+    <button class="buttons-actions " (click)="addNewCells()">Add 100 cells</button>
+    <button class="buttons-actions " (click)="updateCells()">Update a cell</button>
 
     <div class="information">
       <h4>
@@ -33,7 +33,7 @@
       </thead>
       <tbody #bodyTable>
         <tr *ngFor="let item of INFORMATION" >
-          <td class="pointer" (click)="activeCell($event)"  *ngFor="let item of INFORMATION"></td>
+          <td class="pointer" (click)="activeCell($event)"  *ngFor="let item of INFORMATION">{{item}}</td>
         </tr>
       </tbody>
 

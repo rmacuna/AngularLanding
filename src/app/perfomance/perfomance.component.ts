@@ -18,7 +18,7 @@ export class PerfomanceComponent implements OnInit {
 
 
   DEVICE_INFO: any;
-  INFORMATION: any;
+  INFORMATION: any[];
   DEFAULT_NUMBER = 150;
 
 
@@ -72,41 +72,53 @@ export class PerfomanceComponent implements OnInit {
 
   paintAllCells(): void {
     this.progress.start();
+    let TotalTime;
 
-    const Totaltime_start = performance.now();
-    const tr_arrays = Array.prototype.slice.call(this.bodyTable.nativeElement.children);
-    tr_arrays.forEach(element => {
-      const td_arrays = Array.prototype.slice.call(element.children);
-      td_arrays.forEach(tds => {
-        const td0 = performance.now();
-        this.render.addClass(tds, 'cell-active');
-        const td1 = performance.now();
-        const tdresult = (td1 - td0);
-        const tdelem = this.render.createText(tdresult.toPrecision(2));
-        this.render.appendChild(tds, tdelem);
+    setTimeout(() => {
+      const Totaltime_start = performance.now();
+      const tr_arrays = Array.prototype.slice.call(this.bodyTable.nativeElement.children);
+      tr_arrays.forEach(element => {
+        const td_arrays = Array.prototype.slice.call(element.children);
+        td_arrays.forEach(tds => {
+          const td0 = performance.now();
+          this.render.addClass(tds, 'cell-active');
+          const td1 = performance.now();
+          const tdresult = (td1 - td0);
+        });
       });
-    });
+      const Totaltime_end = performance.now();
+      TotalTime = Totaltime_end - Totaltime_start;
+      this.progress.done();
 
-    const Totaltime_end = performance.now();
+    }, 500);
 
 
     setTimeout(() => {
-      alert((Totaltime_end - Totaltime_start) + 'milliseconds');
-      this.progress.done();
+      alert(TotalTime + 'milliseconds');
     }, 1000);
 
   }
 
   removeCells(): void {
-
+    this.progress.start();
+    setTimeout(() => {
+      this.INFORMATION.splice(0, 100);
+      this.progress.done();
+    }, 500);
   }
 
   updateCells(): void {
-
+      this.INFORMATION[Math.floor(Math.random() * this.INFORMATION.length)] = 'M+';
   }
 
   addNewCells(): void {
-
+    this.progress.start();
+    setTimeout(() => {
+      for (let index = 0; index < 100; index++) {
+        this.INFORMATION.push(1);
+      }
+      this.progress.done();
+    }, 500);
   }
 
 
@@ -114,8 +126,10 @@ export class PerfomanceComponent implements OnInit {
     const t0 = performance.now();
     const target = evt.target;
     this.render.addClass(target, 'cell-active');
+
     const t1 = performance.now();
     const result = (t1 - t0);
+    evt.innerHTML = '';
     const elem = this.render.createText(result.toPrecision(2) + ' mill');
     this.render.appendChild(target, elem);
   }

@@ -15,7 +15,7 @@
             <button class="buttons-actions " (click)="paintAllCells()">Paint all cells</button>
             <button class="buttons-actions " (click)="removeCells()">Remove 100 cells</button>
             <button class="buttons-actions " (click)="addNewCells()">Add 100 cells</button>
-            <button class="buttons-actions " (click)="updateCells()">Reload the table</button>
+            <button class="buttons-actions " (click)="reloadTable()">Reload the table</button>
         </div>
     </div>
 
@@ -32,31 +32,49 @@
                 <td class="pointer" (click)="activeCell($event)"  *ngFor="let item of INFORMATION">{{item}}</td>
               </tr>
             </tbody>
-          </table> -->
+          </table> 
     </div>
-<!--     
-    <div class="information">
-      <h4>
-        Browser Information
-      </h4>
-      <p>{{DEVICE_INFO[0]}} </p>
-      <p>{{DEVICE_INFO[1]}} </p>
-      <p>{{DEVICE_INFO[2]}} </p>
-      <p>{{DEVICE_INFO[3]}} </p>
-      <p>{{DEVICE_INFO[4]}} </p>
-      <p>{{DEVICE_INFO[5]}} </p>
-    </div> -->
-<!-- 
-    <table class="blueTable">
-      <thead>
-        <th *ngFor="let item of INFORMATION" >Row</th>
-      </thead>
-      <tbody #bodyTable>
-        <tr *ngFor="let item of INFORMATION" >
-          <td class="pointer" (click)="activeCell($event)"  *ngFor="let item of INFORMATION">{{item}}</td>
-        </tr>
-      </tbody>
-    </table> -->
+
+
+    <div class="centered_button_wrapper"> 
+
+        <button (click)="showPerfomanceResults()" class="buttons-actions button-result"> Show results</button>
+
+    </div>
+
+    
+  </div>
+  <div #testResults class="container__information hidden">
+      <div class="results_card_container ">
+
+        <section class="NavyCard">
+            <h3 class="subtitle">Benchmark</h3>
+            <h1 class="title">Summary</h1>
+
+
+            <div class="content">
+                <div class="ThreeRowContainer">
+                  <div class="col">
+                    <section class="subCard">
+                      Item
+                    </section>
+                  </div>
+                  <div class="col">
+                      <section class="subCard">
+                        Item
+                      </section>
+                    </div>
+                    <div class="col">
+                        <section class="subCard">
+                          Item
+                        </section>
+                      </div>
+                </div>
+            </div>
+        </section>
+
+      </div>
   </div>
 </div>
+
 <ng-progress thick="true" color="#6EF7AD"></ng-progress>

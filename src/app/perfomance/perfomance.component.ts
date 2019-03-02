@@ -11,6 +11,7 @@ export class PerfomanceComponent implements OnInit {
 
 
   @ViewChild('target') elem: ElementRef;
+  @ViewChild('testResults') results: ElementRef;
   @ViewChild('bodyTable') bodyTable: ElementRef;
 
   // Modelo que inicia la vista inicialmente en falso para que el test se muestre al dar click. 
@@ -107,8 +108,14 @@ export class PerfomanceComponent implements OnInit {
     }, 500);
   }
 
-  updateCells(): void {
-      this.INFORMATION[Math.floor(Math.random() * this.INFORMATION.length)] = 'M+';
+  reloadTable(): void {
+      this.progress.start();
+      this.progress.set(0.4);
+      this.INFORMATION = [];
+      for (let i = 1; i <= this.DEFAULT_NUMBER; i++) {
+        this.INFORMATION.push('1');
+      }
+      this.progress.done();
   }
 
   addNewCells(): void {
@@ -121,6 +128,17 @@ export class PerfomanceComponent implements OnInit {
     }, 500);
   }
 
+
+  showPerfomanceResults() {
+
+    this.render.removeClass(this.results.nativeElement, 'hidden');
+    this.render.removeClass(this.results.nativeElement, 'show');
+    this.results.nativeElement.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  private storeResult() {
+
+  }
 
   activeCell(evt): void {
     const t0 = performance.now();

@@ -42,12 +42,33 @@
   font-weight: 600
   font-size: 14px
 
-  transition: background 0.3s cubic-bezier(0.39, 0.58, 0.57, 1)
+  transition: background 0.3s cubic-bezier(0.39, 0.58, 0.57, 1), transform  0.3s cubic-bezier(0.39, 0.58, 0.57, 1)
 
   &:hover 
     background: darken(#2D1555, 2)
 
-  
+.buttons-actions.button-result 
+  position: relative
+  background: #6FFFB3
+  color: #140048
+  padding: 14px 16px 
+  font-size: 18px 
+  &:hover 
+    transform: scale(1.2)
+    background: darken(#6FFFB3, 10)
+
+
+
+.centered_button_wrapper
+  position: relative
+  width: 100% 
+  min-height: 200px
+
+  display: flex
+  align-items: center
+  justify-content: center
+
+
 
 .InitButton
     position: relative
@@ -172,4 +193,56 @@ td.cell-active
   overflow: scroll
   min-height: 500px
 
-  
+.container__information
+  position: relative
+  width: 100%
+  min-height: 500px
+
+  background: #32164B
+
+.results_card_container
+  position: relative
+  width: 100% 
+  padding: 100px 58px
+section.NavyCard 
+  position: relative
+  width: 100% 
+  border-radius: 12px 
+  padding: 49px 38px 
+  background: #fff 
+
+  box-shadow: 0 4px 100px rgba(0,0,0,.34)
+
+  h3.subtitle 
+    position: relative
+    color: rgba(18,0,69, .53 )
+    margin: 0
+    font-size: 20px
+  h1.title 
+    position: relative
+    color: rgba(9,0,74,1)
+    font-size: 42px
+  .content
+    position: relative
+    width: 100% 
+    padding: 64px 0px
+
+
+  .ThreeRowContainer
+    position: relative
+    display: flex 
+    flex-wrap: wrap
+    .col
+      flex: 1 0 30%
+      margin: 5px
+      height: 100%
+      
+
+  .subCard 
+    position: relative
+    width: 100% 
+    min-height: 118px
+    
+    padding: 22px 23px 
+    box-shadow: 0 4px 10px  rgba(6,0,98,.19)
+    border-radius: 12px

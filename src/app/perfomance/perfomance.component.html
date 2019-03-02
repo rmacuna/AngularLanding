@@ -10,70 +10,63 @@
   <div class="container__perfomance">
 
     <div class="container_actions">
-        <h1 class="Operation">Click one operation</h1>
-        <div class="Action__Items">
-            <button class="buttons-actions " (click)="paintAllCells()">Paint all cells</button>
-            <button class="buttons-actions " (click)="removeCells()">Remove 100 cells</button>
-            <button class="buttons-actions " (click)="addNewCells()">Add 100 cells</button>
-            <button class="buttons-actions " (click)="reloadTable()">Reload the table</button>
-        </div>
+      <h1 class="Operation">Click one operation</h1>
+      <div class="Action__Items">
+        <button class="buttons-actions " (click)="paintAllCells()">Paint all cells</button>
+        <button class="buttons-actions " (click)="removeCells()">Remove 100 cells</button>
+        <button class="buttons-actions " (click)="addNewCells()">Add 100 cells</button>
+        <button class="buttons-actions " (click)="reloadTable()">Reload the table</button>
+      </div>
     </div>
 
     <h1>
       Simulated table of {{INFORMATION.length}} x {{INFORMATION.length}}
     </h1>
     <div class="container_table">
-        <table class="blueTable">
-            <thead>
-              <th *ngFor="let item of INFORMATION" >Row</th>
-            </thead>
-            <tbody #bodyTable>
-              <tr *ngFor="let item of INFORMATION" >
-                <td class="pointer" (click)="activeCell($event)"  *ngFor="let item of INFORMATION">{{item}}</td>
-              </tr>
-            </tbody>
-          </table> 
+      <table class="blueTable">
+        <thead>
+          <th *ngFor="let item of INFORMATION">Row</th>
+        </thead>
+        <tbody #bodyTable>
+          <tr *ngFor="let item of INFORMATION">
+            <td class="pointer" (click)="activeCell($event)" *ngFor="let item of INFORMATION">{{item}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
 
-    <div class="centered_button_wrapper"> 
+    <div class="centered_button_wrapper">
 
-        <button (click)="showPerfomanceResults()" class="buttons-actions button-result"> Show results</button>
+      <button (click)="showPerfomanceResults()" class="buttons-actions button-result"> Show results</button>
 
     </div>
 
-    
+
   </div>
   <div #testResults class="container__information hidden">
-      <div class="results_card_container ">
+    <div class="results_card_container ">
 
-        <section class="NavyCard">
-            <h3 class="subtitle">Benchmark</h3>
-            <h1 class="title">Summary</h1>
+      <section class="NavyCard">
+        <h3 class="subtitle">Benchmark</h3>
+        <h1 class="title">Summary</h1>
 
 
-            <div class="content">
-                <div class="ThreeRowContainer">
-                  <div class="col">
-                    <section class="subCard">
-                      Item
-                    </section>
-                  </div>
-                  <div class="col">
-                      <section class="subCard">
-                        Item
-                      </section>
-                    </div>
-                    <div class="col">
-                        <section class="subCard">
-                          Item
-                        </section>
-                      </div>
-                </div>
+        <div class="content">
+          <div class="ThreeRowContainer">
+            <div *ngFor="let item of PerfomedActions"  class="col">
+              <section class="subCard">
+                <h1>{{item.Action}}</h1>
+                <p>
+                  {{item.time_elapsed}}
+                </p>
+              </section>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
-      </div>
+    </div>
   </div>
 </div>
 

@@ -6,7 +6,7 @@ import { NgProgress } from 'ngx-progressbar';
   templateUrl: './perfomance.component.html',
   styleUrls: ['./perfomance.component.sass']
 })
-export class PerfomanceComponent implements OnInit {
+export class PerfomanceComponent implements OnInit  {
 
 
 
@@ -24,6 +24,10 @@ export class PerfomanceComponent implements OnInit {
 
 
 
+  PerfomedActions: any[];
+
+
+
   RANDOM_ARR_COUNTER: any[];
 
   constructor(
@@ -33,6 +37,7 @@ export class PerfomanceComponent implements OnInit {
 
   ngOnInit() {
     this.INFORMATION = [];
+    this.PerfomedActions = [];
     this.RANDOM_ARR_COUNTER = [];
     this.perfomanceActive = false;
   }
@@ -84,19 +89,16 @@ export class PerfomanceComponent implements OnInit {
           const td0 = performance.now();
           this.render.addClass(tds, 'cell-active');
           const td1 = performance.now();
-          const tdresult = (td1 - td0);
+          // const tdresult = (td1 - td0);
         });
       });
       const Totaltime_end = performance.now();
-      TotalTime = Totaltime_end - Totaltime_start;
+      TotalTime = (Totaltime_end - Totaltime_start) + ' milliseconds';
+      this.storeResult('Paint All Cells', TotalTime);
       this.progress.done();
 
     }, 500);
 
-
-    setTimeout(() => {
-      alert(TotalTime + 'milliseconds');
-    }, 1000);
 
   }
 
@@ -111,10 +113,15 @@ export class PerfomanceComponent implements OnInit {
   reloadTable(): void {
       this.progress.start();
       this.progress.set(0.4);
+      const startTime = performance.now();
       this.INFORMATION = [];
       for (let i = 1; i <= this.DEFAULT_NUMBER; i++) {
         this.INFORMATION.push('1');
       }
+      const endTime = performance.now();
+
+      const result = (endTime - startTime) + ' milliseconds';
+      this.storeResult('Reload Table' , result);
       this.progress.done();
   }
 
@@ -136,8 +143,11 @@ export class PerfomanceComponent implements OnInit {
     this.results.nativeElement.scrollIntoView({ behavior: 'smooth' });
   }
 
-  private storeResult() {
-
+  private storeResult(type, totalTime) {
+    this.PerfomedActions.push({
+        Action: type,
+        time_elapsed: totalTime
+    });
   }
 
   activeCell(evt): void {

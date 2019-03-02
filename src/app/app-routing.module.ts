@@ -4,7 +4,7 @@ import { PerfomanceComponent } from './perfomance/perfomance.component';
 
 const routes: Routes = [
     {
-      path: 'landing',
+      path: '',
       loadChildren: './landing/landing.module#LandingModule',
     },
     {
@@ -13,7 +13,7 @@ const routes: Routes = [
     },
     {
       path: '',
-      redirectTo: 'landing',
+      redirectTo: '',
       pathMatch: 'full'
     }
 ];

@@ -8,11 +8,33 @@
 
 <div #target class="perfomance_section hidden">
   <div class="container__perfomance">
-    <button class="buttons-actions " (click)="paintAllCells()">Paint all cells</button>
-    <button class="buttons-actions " (click)="removeCells()">Remove 100 cells</button>
-    <button class="buttons-actions " (click)="addNewCells()">Add 100 cells</button>
-    <button class="buttons-actions " (click)="updateCells()">Update a cell</button>
 
+    <div class="container_actions">
+        <h1 class="Operation">Click one operation</h1>
+        <div class="Action__Items">
+            <button class="buttons-actions " (click)="paintAllCells()">Paint all cells</button>
+            <button class="buttons-actions " (click)="removeCells()">Remove 100 cells</button>
+            <button class="buttons-actions " (click)="addNewCells()">Add 100 cells</button>
+            <button class="buttons-actions " (click)="updateCells()">Reload the table</button>
+        </div>
+    </div>
+
+    <h1>
+      Simulated table of {{INFORMATION.length}} x {{INFORMATION.length}}
+    </h1>
+    <div class="container_table">
+        <table class="blueTable">
+            <thead>
+              <th *ngFor="let item of INFORMATION" >Row</th>
+            </thead>
+            <tbody #bodyTable>
+              <tr *ngFor="let item of INFORMATION" >
+                <td class="pointer" (click)="activeCell($event)"  *ngFor="let item of INFORMATION">{{item}}</td>
+              </tr>
+            </tbody>
+          </table> -->
+    </div>
+<!--     
     <div class="information">
       <h4>
         Browser Information
@@ -23,9 +45,8 @@
       <p>{{DEVICE_INFO[3]}} </p>
       <p>{{DEVICE_INFO[4]}} </p>
       <p>{{DEVICE_INFO[5]}} </p>
-    </div>
-
-
+    </div> -->
+<!-- 
     <table class="blueTable">
       <thead>
         <th *ngFor="let item of INFORMATION" >Row</th>
@@ -35,8 +56,7 @@
           <td class="pointer" (click)="activeCell($event)"  *ngFor="let item of INFORMATION">{{item}}</td>
         </tr>
       </tbody>
-
-    </table>
+    </table> -->
   </div>
 </div>
 <ng-progress thick="true" color="#6EF7AD"></ng-progress>

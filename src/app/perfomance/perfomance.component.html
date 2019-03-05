@@ -12,8 +12,7 @@
     <div class="container_actions">
       <h1 class="Operation">Click one operation</h1>
       <div class="Action__Items">
-        <button class="buttons-actions " (click)="paintAllCells()">Paint all cells</button>
-        <button class="buttons-actions " (click)="removeCells()">Remove 100 cells</button>
+        <button class="buttons-actions " (click)="removeCells()">Remove to 100 cells</button>
         <button class="buttons-actions " (click)="addNewCells()">Add 100 cells</button>
         <button class="buttons-actions " (click)="reloadTable()">Reload the table</button>
       </div>
@@ -29,7 +28,7 @@
         </thead>
         <tbody #bodyTable>
           <tr *ngFor="let item of INFORMATION">
-            <td class="pointer" (click)="activeCell($event)" *ngFor="let item of INFORMATION">{{item}}</td>
+            <td class="pointer" *ngFor="let item of INFORMATION">{{item}}</td>
           </tr>
         </tbody>
       </table>

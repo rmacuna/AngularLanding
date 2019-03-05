@@ -28,8 +28,6 @@ export class PerfomanceComponent implements OnInit  {
 
 
 
-  RANDOM_ARR_COUNTER: any[];
-
   constructor(
     private progress: NgProgress,
     private render: Renderer2,
@@ -38,14 +36,12 @@ export class PerfomanceComponent implements OnInit  {
   ngOnInit() {
     this.INFORMATION = [];
     this.PerfomedActions = [];
-    this.RANDOM_ARR_COUNTER = [];
     this.perfomanceActive = false;
   }
 
 
   startPerfomanceTest() {
     this.progress.start();
-    this.RANDOM_ARR_COUNTER = Array.from({ length: this.DEFAULT_NUMBER }, (v, k) => k + 1);
     this.DEVICE_INFO = this.getDeviceInfo();
     setTimeout(() => {
       for (let i = 1; i <= this.DEFAULT_NUMBER; i++) {
@@ -62,45 +58,6 @@ export class PerfomanceComponent implements OnInit  {
       this.progress.done();
     }, 1200);
   }
-
-  // Obtiene información del equipo en el que se esta haciendo el benchmark.
-  private getDeviceInfo() {
-    const INFO = [
-      'Browser codename: ' + navigator.appCodeName,
-      'Browser name: ' + navigator.appName,
-      'Browser version: ' + navigator.appVersion,
-      'Cookies Enabled: ' + navigator.cookieEnabled,
-      'Platform:' + navigator.platform,
-      'User-agent header: ' + navigator.userAgent
-    ];
-    return INFO;
-  }
-
-  // paintAllCells(): void {
-  //   this.progress.start();
-  //   let TotalTime;
-
-  //   setTimeout(() => {
-  //     const Totaltime_start = performance.now();
-  //     const tr_arrays = Array.prototype.slice.call(this.bodyTable.nativeElement.children);
-  //     tr_arrays.forEach(element => {
-  //       const td_arrays = Array.prototype.slice.call(element.children);
-  //       td_arrays.forEach(tds => {
-  //         const td0 = performance.now();
-  //         this.render.addClass(tds, 'cell-active');
-  //         const td1 = performance.now();
-  //         // const tdresult = (td1 - td0);
-  //       });
-  //     });
-  //     const Totaltime_end = performance.now();
-  //     TotalTime = (Totaltime_end - Totaltime_start) + ' milliseconds';
-  //     this.storeResult('Paint All Cells', TotalTime);
-  //     this.progress.done();
-
-  //   }, 500);
-
-
-  // }
 
   removeCells(): void {
     this.progress.start();
@@ -154,24 +111,6 @@ export class PerfomanceComponent implements OnInit  {
         time_elapsed: totalTime
     });
   }
-
-  // activeCell(evt): void {
-  //   const t0 = performance.now();
-  //   const target = evt.target;
-  //   this.render.addClass(target, 'cell-active');
-
-  //   const t1 = performance.now();
-  //   const result = (t1 - t0);
-  //   evt.innerHTML = '';
-  //   // const elem = this.render.createText(result.toPrecision(2) + ' mill');
-  //   // this.render.appendChild(target, elem);
-  // }
-
-  desactivateCell(evt): void {
-    const target = evt.target.nativeElement;
-    this.render.removeClass(target, 'cell-active');
-  }
-
 
 
 }

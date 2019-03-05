@@ -42,7 +42,6 @@ export class PerfomanceComponent implements OnInit  {
 
   startPerfomanceTest() {
     this.progress.start();
-    this.DEVICE_INFO = this.getDeviceInfo();
     setTimeout(() => {
       for (let i = 1; i <= this.DEFAULT_NUMBER; i++) {
         this.INFORMATION.push('1');

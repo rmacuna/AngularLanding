@@ -15,20 +15,21 @@
         <button class="buttons-actions " (click)="removeCells()">Remove to 100 cells</button>
         <button class="buttons-actions " (click)="addNewCells()">Add 100 cells</button>
         <button class="buttons-actions " (click)="reloadTable()">Reload the table</button>
+        <button class="buttons-actions " (click)="updateCell()">Update cell</button>
       </div>
     </div>
 
     <h1>
-      Simulated table of {{INFORMATION.length}} x {{INFORMATION.length}}
+      Simulated table of {{Days.length}} x {{INFORMATION.length}}
     </h1>
     <div class="container_table">
       <table class="blueTable">
         <thead>
-          <th *ngFor="let item of INFORMATION">Row</th>
+          <th *ngFor="let item of Days">{{item.name}}</th>
         </thead>
         <tbody #bodyTable>
           <tr *ngFor="let item of INFORMATION">
-            <td class="pointer" *ngFor="let item of INFORMATION">{{item}}</td>
+            <td class="pointer" *ngFor="let day of Days">{{item.name}}</td>
           </tr>
         </tbody>
       </table>

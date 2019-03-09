@@ -1,0 +1,73 @@
+<div class="background__perfomance">
+  <div class="MainContainer">
+    <h1 class="HeaderTitle">Perfomance test (Angular)</h1>
+    <h4>Roberto Acuña, William Cadenas, Elkin Rodriguez</h4>
+    <button *ngIf="!perfomanceActive" (click)="startPerfomanceTest()" class="InitButton">INICIAR</button>
+  </div>
+</div>
+
+<div #target class="perfomance_section hidden">
+  <div class="container__perfomance">
+
+    <div class="container_actions">
+      <h1 class="Operation">Click one operation</h1>
+      <div class="Action__Items">
+        <button class="buttons-actions " (click)="removeCells()">Remove to 100 cells</button>
+        <button class="buttons-actions " (click)="addNewCells()">Add 100 cells</button>
+        <button class="buttons-actions " (click)="reloadTable()">Reload the table</button>
+        <button class="buttons-actions " (click)="updateCell()">Update cell</button>
+      </div>
+    </div>
+
+    <h1>
+      Simulated table of {{Days.length}} x {{INFORMATION.length}}
+    </h1>
+    <div class="container_table">
+      <table class="blueTable">
+        <thead>
+          <th *ngFor="let item of Days">{{item.name}}</th>
+        </thead>
+        <tbody #bodyTable>
+          <tr *ngFor="let item of INFORMATION">
+            <td class="pointer" *ngFor="let day of Days">{{item.name}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+    <div class="centered_button_wrapper">
+
+      <button (click)="showPerfomanceResults()" class="buttons-actions button-result"> Show results</button>
+
+    </div>
+
+
+  </div>
+  <div #testResults class="container__information hidden">
+    <div class="results_card_container ">
+
+      <section class="NavyCard">
+        <h3 class="subtitle">Benchmark</h3>
+        <h1 class="title">Summary</h1>
+
+
+        <div class="content">
+          <div class="ThreeRowContainer">
+            <div *ngFor="let item of PerfomedActions"  class="col">
+              <section class="subCard">
+                <h1>{{item.Action}}</h1>
+                <p>
+                  {{item.time_elapsed}}
+                </p>
+              </section>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<ng-progress thick="true" color="#6EF7AD"></ng-progress>

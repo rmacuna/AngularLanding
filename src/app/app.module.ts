@@ -3,18 +3,20 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 import { ButtonTitledComponent } from './elements/ButtonTitled/ButtonTitled';
+import { PerfomanceComponent } from './perfomance/perfomance.component';
+import { NgProgressModule } from 'ngx-progressbar';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    ButtonTitledComponent
+    ButtonTitledComponent,
+    PerfomanceComponent
   ],
   imports: [
     BrowserModule,
+    NgProgressModule,
     AppRoutingModule
   ],
   providers: [],
